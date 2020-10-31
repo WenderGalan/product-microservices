@@ -30,3 +30,8 @@ crud:
     exchange: crud.exchange
     queue: crud.produto.queue
     routingkey: crud.produto.routingkey
+
+security:
+  jwt:
+    token:
+      secret-key: chave_microservice
