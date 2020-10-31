@@ -3,6 +3,7 @@ package io.github.wendergalan.crud.services;
 import io.github.wendergalan.crud.data.vo.ProdutoVO;
 import io.github.wendergalan.crud.entities.Produto;
 import io.github.wendergalan.crud.exceptions.ResourceNotFoundException;
+import io.github.wendergalan.crud.message.ProdutoSendMessage;
 import io.github.wendergalan.crud.repositories.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -15,9 +16,12 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProdutoService {
     private final ProdutoRepository produtoRepository;
+    private final ProdutoSendMessage produtoSendMessage;
 
     public ProdutoVO create(ProdutoVO produtoVO) {
-        return ProdutoVO.create(produtoRepository.save(Produto.create(produtoVO)));
+        ProdutoVO produtoVORetorno = ProdutoVO.create(produtoRepository.save(Produto.create(produtoVO)));
+        produtoSendMessage.sendMessage(produtoVORetorno);
+        return produtoVORetorno;
     }
 
     public Page<ProdutoVO> findAll(Pageable pageable) {
