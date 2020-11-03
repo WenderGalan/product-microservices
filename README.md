@@ -3,7 +3,7 @@
 Project to sell products to improve Spring Cloud and RabbitMQ tools.
 
 - ### The structure of the project
-[![Estrutura](https://github.com/WenderGalan/product-microservices/blob/main/estrutura.jpg?raw=true)](https://github.com/WenderGalan/ms-course)
+[![Estrutura](https://github.com/WenderGalan/product-microservices/blob/main/estrutura.jpg?raw=true)](https://github.com/WenderGalan/product-microservices)
 
 - ### License:
 ```
